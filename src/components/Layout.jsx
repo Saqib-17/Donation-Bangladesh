@@ -57,7 +57,8 @@ const Layout = () => {
 
       {/* Footer */}
       <footer>
-        <div className="navbar bg-base-100 px-16 bg-secondary-color py-16"></div>
+        <div className=" bg-base-100  bg-secondary-color "></div>
+        <p>saqib@eastdeltauniversity</p>
       </footer>
     </div>
   );
