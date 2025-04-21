@@ -36,9 +36,9 @@ const Home = () => {
     },
   ]);
 
-  const [showModal, setShowModal] = useState(false);
+  const [modalInfo, setModalInfo] = useState({ isVisible: false, position: null });
 
-  const handleDonate = (id, inputId) => {
+  const handleDonate = (e, id, inputId) => {
     const input = document.getElementById(inputId);
     const donationAmount = parseFloat(input.value);
 
@@ -68,15 +68,20 @@ const Home = () => {
     const newMainBalance = currentMainBalance - donationAmount;
     mainBalanceElement.innerText = `${newMainBalance} BDT`;
 
-    // Show modal
-    setShowModal(true);
+    // Show modal at button position
+    const rect = e.target.getBoundingClientRect();
+    const position = {
+      top: rect.top + window.scrollY,
+      left: rect.left + rect.width / 2,
+    };
+    setModalInfo({ isVisible: true, position });
 
     // Clear input
     input.value = "";
   };
 
   const closeModal = () => {
-    setShowModal(false);
+    setModalInfo({ isVisible: false, position: null });
   };
 
   return (
@@ -104,7 +109,7 @@ const Home = () => {
                 />
                 <button
                   className="btn btn-ghost text-xl font-semibold bg-primary-color"
-                  onClick={() => handleDonate(id, `donation-input-${id}`)}
+                  onClick={(e) => handleDonate(e, id, `donation-input-${id}`)}
                 >
                   Donate Now
                 </button>
@@ -113,7 +118,7 @@ const Home = () => {
           </div>
         </div>
       ))}
-      <Modal isVisible={showModal} onClose={closeModal} />
+      <Modal isVisible={modalInfo.isVisible} onClose={closeModal} position={modalInfo.position} />
     </>
   );
 };

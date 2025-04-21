@@ -1,5 +1,6 @@
 import React from "react";
-import coin from "../assets/coin.png"; // make sure this path is correct
+import coin from "../assets/coin.png";
+import "../styles/Modal.css"; // make sure to create this CSS file or add styles in your main CSS
 
 const Modal = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
@@ -7,16 +8,10 @@ const Modal = ({ isVisible, onClose }) => {
   return (
     <div className="custom-modal-overlay">
       <div className="custom-modal-box">
-        <h2 className="custom-modal-title">Congrats!</h2>
-        <img src={coin} alt="coin" className="custom-modal-icon" />
-        <p className="custom-modal-text">
-          You Have Donated for Humankind
-          <br />
-          <strong>Successfully</strong>
-        </p>
-        <button className="custom-modal-btn" onClick={onClose}>
-          close confirmation
-        </button>
+        <img src={coin} alt="Coin" className="modal-coin-icon" />
+        <h3 className="modal-title">Donation Successful!</h3>
+        <p className="modal-message">Thank you for your generous donation. Your support matters!</p>
+        <button onClick={onClose} className="modal-close-btn">Close</button>
       </div>
     </div>
   );
