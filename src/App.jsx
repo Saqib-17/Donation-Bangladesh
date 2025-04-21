@@ -10,34 +10,31 @@ import coin from './assets/coin.png';
 function App() {
   return (
     <div className="lexend-font w-full">
-
-
-       <header className="sticky top-0 z-10">
-      <nav id="navbar">
-        <div className="navbar bg-base-100 px-16 bg-secondary-color py-6">
-          <div className="navbar-start">
-            <a id="blog" className="btn btn-ghost text-xl font-semibold bg-primary-color lg:px-10">
-              Blog
-            </a>
+      <header className="sticky top-0 z-10">
+        <nav id="navbar">
+          <div className="navbar bg-base-100 px-16 bg-secondary-color py-6">
+            <div className="navbar-start">
+              <a id="blog" className="btn btn-ghost text-xl font-semibold bg-primary-color lg:px-10">
+                Blog
+              </a>
+            </div>
+            <div className="navbar-center hidden lg:flex">
+              <div className="logo-title-container">
+                <img src={logo} alt="logo" className="logo-img" />
+                <span className="site-title">Donate Bangladesh</span>
+              </div>
+            </div>
+            <div className="navbar-end">
+              <a id="cash-out-btn" className="btn text-xl font-semibold text-dark-3 lg:px-10">
+                5550 BDT
+              </a>
+            </div>
           </div>
-          <div className="navbar-center hidden lg:flex">
-          <div className="logo-title-container">
-  <img src={logo} alt="logo" className="logo-img" />
-  <span className="site-title">Donate Bangladesh</span>
-</div>
-          </div>
-          <div className="navbar-end">
-            <a id="cash-out-btn" className="btn text-xl font-semibold text-dark-3 lg:px-10">
-              5550 BDT
-            </a>
-          </div>
-        </div>
-      </nav>
-    </header>
-
+        </nav>
+      </header>
 
       {/* Main Content */}
-      <main className="my-20 lg:px-36 relative w-full">
+      <main className="my-20 lg:px-16 relative w-full">
         {/* Action Buttons */}
         <div id="action-btn" className="flex justify-center space-x-4 sticky mx-auto w-full z-40 top-16">
           <button id="donation-button" className="btn btn-lg text-xl font-semibold px-10">
@@ -69,32 +66,37 @@ function App() {
           defaultAmount: "700 BDT"
         }].map(({ id, image, place, description, defaultAmount }) => (
           <div className="hero" key={id}>
-            <div className="hero-content">
-              <div className="hero-image">
-                <img src={image} alt={place} />
+            <div className="hero-content flex flex-col lg:flex-row items-center gap-6 lg:gap-10 px-4 lg:px-8">
+              <div className="hero-image flex-shrink-0">
+                <img src={image} alt={place} className="rounded-lg w-full max-w-md" />
               </div>
-              <div className="hero-text">
-                <button className="donation-btn">
-                  <img src={coin} alt="Coin" className="icon" />
+              <div className="hero-text w-full">
+                <button className="donation-btn flex items-center bg-lime-400 text-black font-bold text-lg px-4 py-2 rounded-md w-fit mb-4">
+                  <img src={coin} alt="Coin" className="w-6 h-6 mr-2" />
                   <span>{defaultAmount}</span>
                 </button>
-                <h1 className="text-2xl font-bold">
+                <h1 className="text-2xl font-bold mb-2">
                   Donate for <span id={`place-${id}`}>{place}</span>, Bangladesh
                 </h1>
-                <p className="py-2 text-base font-light text-dark-3">
+                <p className="py-2 text-base font-light text-dark-3 mb-4">
                   {description}
                 </p>
-                <input
-                  type="text"
-                  id={`input-balance${id}`}
-                  placeholder="Write Donation Amount"
-                />
-                <button
-                  id={`donate-now-btn${id}`}
-                  className="btn btn-ghost text-xl font-semibold bg-primary-color"
-                >
-                  Donate Now
-                </button>
+                <div className="flex flex-col gap-4 w-full">
+                <div className="donation-form">
+  <input
+    type="text"
+    id={`input-balance${id}`}
+    placeholder="Write Donation Amount"
+  />
+  <button
+    id={`donate-now-btn${id}`}
+    className="btn btn-ghost text-xl font-semibold bg-primary-color"
+  >
+    Donate Now
+  </button>
+</div>
+
+                </div>
               </div>
             </div>
           </div>
