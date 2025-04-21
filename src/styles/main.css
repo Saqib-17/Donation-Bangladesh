@@ -1,17 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
-body {
+
+html, body {
   margin: 0;
   padding: 0;
+  background-color: #f9f7f3;
   font-family: "Lexend", sans-serif;
-  background-color: #F9F7F3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
+  color: #213547;
+  height: auto;
+  width: 100%;
+  overflow-x: hidden;
 }
 
+#root {
+  width: 100%;
+}
 /* Variables */
 :root {
   --primary-color: #B4F461;
@@ -25,13 +28,16 @@ body {
 /* Navbar */
 .navbar {
   padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
   position: relative;
-  width: 100%;
+  width: auto;
   padding-left: 2rem;
   padding-right: 2rem;
   box-sizing: border-box;
+  background-color: antiquewhite;
 }
 
 /* Center (logo + title) */
@@ -315,4 +321,11 @@ footer {
     width: 100%;
     max-width: 350px; /* Fixed width for both input and button */
   }
+  footer {
+    background-color: var(--secondary-color);
+    padding: 3rem 4rem;
+    width: auto;
+    text-align: center;
+  }
+  
 }
